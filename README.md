@@ -16,16 +16,18 @@ $ docker build -t mdouchement/readymedia-transcode .
 
 ```sh
 # Running and get a Bash interpreter
-$ docker run -v /my_media:/data -p 8200:8200 -it mdouchement/readymedia-transcode:latest
+$ docker run -v /my_media:/data --net=host -it mdouchement/readymedia-transcode:latest
 
 # Running as daemon
-$ docker run -v /my_media:/data -p 8200:8200 -d mdouchement/readymedia-transcode:latest
+$ docker run -v /my_media:/data --net=host -d mdouchement/readymedia-transcode:latest
 ```
 
 - You can add options by setting the following environment variable `MINIDLNA_OPTS`
 - You can change the video transcoder by setting the following environment variable `TRANSCODE_VIDEO_TRANSCODER`
   - default: `/usr/share/minidlna/transcodescripts/transcode_video-hq`
   - `/usr/share/minidlna/transcodescripts/transcode_video`
+- `MINIDLNA_PORT=8200`
+- `MINIDLNA_FRIENDLY_NAME 'DLNA Server'`
 
 ## Contributing
 

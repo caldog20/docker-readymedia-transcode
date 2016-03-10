@@ -2,7 +2,9 @@ FROM base/archlinux
 MAINTAINER mdouchement
 
 ENV MINIDLNA_OPTS ''
-ENV TRANSCODE_VIDEO_TRANSCODER /usr/share/minidlna/transcodescripts/transcode_video-hq
+ENV MINIDLNA_PORT 8200
+ENV MINIDLNA_FRIENDLY_NAME 'DLNA Server'
+ENV MINIDLNA_TRANSCODE_VIDEO_TRANSCODER /usr/share/minidlna/transcodescripts/transcode_video-hq
 
 RUN pacman --noconfirm -Sy archlinux-keyring
 RUN pacman --noconfirm -Su base-devel yajl git
